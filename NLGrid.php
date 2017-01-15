@@ -6,7 +6,7 @@
  * Time: 21:06
  */
 
-namespace backend\components\Grid;
+namespace lesha724\grid;
 use yii\grid\GridView;
 use yii\grid\GridViewAsset;
 use yii\grid\SerialColumn;

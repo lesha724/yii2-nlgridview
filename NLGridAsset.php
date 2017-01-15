@@ -6,12 +6,12 @@
  * Time: 20:50
  */
 
-namespace backend\components\Grid;
+namespace lesha724\grid;
 use yii\web\AssetBundle;
 
 class NLGridAsset extends AssetBundle
 {
-    public $sourcePath = '@backend/components/Grid/assets';
+    public $sourcePath = '@lesha724/grid/assets';
     public $css = [
         //'css/responsive.css'
     ];
