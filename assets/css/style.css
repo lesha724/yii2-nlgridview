@@ -1,0 +1,12 @@
+.grid-loading {
+	opacity: 0.5;
+	background: #ffffff url('../images/loading.gif') center center no-repeat !important;
+}
+
+.grid-loading tr, .grid-loading td {
+	background: transparent !important;
+}
+
+.grid-loading td {
+	border-color: #efefef !important;
+}

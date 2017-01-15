@@ -11,9 +11,10 @@ use yii\web\AssetBundle;
 
 class NLGridAsset extends AssetBundle
 {
+
     public $sourcePath = '@lesha724/grid/assets';
     public $css = [
-        //'css/responsive.css'
+        'css/style.css'
     ];
     public $js = [
 

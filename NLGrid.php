@@ -21,37 +21,23 @@ class NLGrid extends GridView
 
     public $tableOptions = ['class' => 'table table-striped table-hovered'];
 
-    const SPINNER_CSS = <<<CSS
-    .grid-loading {
-        opacity: 0.5;
-        background: #ffffff url('/images/loading.gif') center center no-repeat !important;
-    }
-
-    .grid-loading tr, .grid-loading td {
-        background: transparent !important;
-    }
-
-    .grid-loading td {
-        border-color: #efefef !important;
-    }
-CSS;
 
 
     public function run()
     {
         $view = $this->getView();
         NLGridAsset::register($view);
-        $this->beginPjax();
+        $this->beforeRun();
         parent::run();
-        $this->endPjax();
+        $this->afterRun();
         $this->writeResponsiveCss();
     }
 
-    protected function endPjax()
+    protected function afterRun()
     {
     }
 
-    protected function beginPjax()
+    protected function beforeRun()
     {
         if (!$this->pjaxId) {
             return;
@@ -69,7 +55,6 @@ CSS;
         $js .= ".off('{$event}').on('{$event}', function(){{$postPjaxJs}})";
 
         $view->registerJs("{$js};");
-        $view->registerCss(self::SPINNER_CSS);
     }
 
     public function init()
