@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist nlgridview/yii2-nlgridview "*"
+php composer.phar require --prefer-dist lesha724/yii2-nlgridview "*"
 ```
 
 or add
 
 ```
-"nlgridview/yii2-nlgridview": "*"
+"lesha724/yii2-nlgridview": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -28,4 +28,4 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \lesha724\grid\AutoloadExample::widget(); ?>```
+<?= \lesha724\grid\NLGrid::widget(); ?>```
