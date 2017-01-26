@@ -17,6 +17,8 @@ class NLGrid extends GridView
 {
     public $pjaxId = null;
 
+    public $responsive = true;
+
     public $layout = "{summary}\n{pager}\n{items}\n{pager}";
 
     public $tableOptions = ['class' => 'table table-striped table-hovered'];
@@ -30,13 +32,14 @@ class NLGrid extends GridView
         $this->beforeRun();
         parent::run();
         $this->afterRun();
-        $this->writeResponsiveCss();
+
+        if($this->responsive)
+            $this->writeResponsiveCss();
     }
 
     protected function afterRun()
     {
         $view = $this->getView();
-
         $view->registerJs($this->scriptInputClearButton);
     }
 
@@ -67,10 +70,10 @@ class NLGrid extends GridView
 
         $id = $this->options['id'];
 
-        /*$this->scriptInputClearButton = "$('#{$id} #{$this->filterRowOptions['id']} :input').addClear({
+        /*$this->scriptInputClearButton = "$('#{$id} #{$this->filterRowOptions['id']} :input[type=\"text\"]').addClear({
           onClear: function(){
-
-          }
+            $('#{$id}').yiiGridView('applyFilter');
+          },
         });";*/
     }
 

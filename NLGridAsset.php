@@ -17,7 +17,7 @@ class NLGridAsset extends AssetBundle
         'css/style.css'
     ];
     public $js = [
-        //'js/bootstrap-add-clear.min.js'
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
