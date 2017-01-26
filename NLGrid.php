@@ -21,7 +21,7 @@ class NLGrid extends GridView
 
     public $tableOptions = ['class' => 'table table-striped table-hovered'];
 
-
+    private $scriptInputClearButton = '';
 
     public function run()
     {
@@ -35,6 +35,9 @@ class NLGrid extends GridView
 
     protected function afterRun()
     {
+        $view = $this->getView();
+
+        $view->registerJs($this->scriptInputClearButton);
     }
 
     protected function beforeRun()
@@ -51,6 +54,7 @@ class NLGrid extends GridView
         $js = "jQuery('#$this->pjaxId').on('pjax:send', function(){{$grid}.addClass('{$loadingCss}')})";
 
         $postPjaxJs = "{$grid}.removeClass('{$loadingCss}');";
+        $postPjaxJs .= $this->scriptInputClearButton;
         $event = 'pjax:complete.' . hash('crc32', $postPjaxJs);
         $js .= ".off('{$event}').on('{$event}', function(){{$postPjaxJs}})";
 
@@ -60,6 +64,14 @@ class NLGrid extends GridView
     public function init()
     {
         parent::init();
+
+        $id = $this->options['id'];
+
+        /*$this->scriptInputClearButton = "$('#{$id} #{$this->filterRowOptions['id']} :input').addClear({
+          onClear: function(){
+
+          }
+        });";*/
     }
 
     /**
