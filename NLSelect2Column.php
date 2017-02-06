@@ -37,7 +37,7 @@ class NLSelect2Column extends DataColumn
             }
             if (is_array($this->filter)) {
                 //$options = $this->filterInputOptions;
-                $options = array_merge(['prompt' => '&nbsp;'], $this->filterInputOptions);
+                $options = array_merge(['prompt' => ''], $this->filterInputOptions);
                 //return Html::activeDropDownList($model, $this->attribute, $this->filter, $options) . $error;
                 return Select2Widget::widget([
                     'model'=>$model,
