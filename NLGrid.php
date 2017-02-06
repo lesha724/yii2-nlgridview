@@ -29,21 +29,21 @@ class NLGrid extends GridView
     {
         $view = $this->getView();
         NLGridAsset::register($view);
-        $this->beforeRun();
+        $this->_beforeRunWidget();
         parent::run();
-        $this->afterRun();
+        $this->_afterRunWidget();
 
         if($this->responsive)
             $this->writeResponsiveCss();
     }
 
-    protected function afterRun()
+    protected function _afterRunWidget()
     {
         $view = $this->getView();
         $view->registerJs($this->scriptInputClearButton);
     }
 
-    protected function beforeRun()
+    protected function _beforeRunWidget()
     {
         if (!$this->pjaxId) {
             return;
